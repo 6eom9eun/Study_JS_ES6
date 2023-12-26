@@ -1,0 +1,50 @@
+<button id="버튼">3번 문제</button>
+
+<script>
+    /* 1. "안녕 나는 손흥민"이 출력되는 함수 만들기
+    var 사람 = {
+        name: '손흥민',
+    }
+    사람.sayHi();
+    */
+
+    /* 1번 정답 */
+    var 사람 ={
+        name:'손흥민',
+        sayHi: function(){
+            console.log('안녕 나는 ' + this.name)
+        }
+    }
+    사람.sayHi();
+
+    /* 2. 오브젝트 내의 데이터를 전부 더해주는 메소드 만들기
+    var 자료 = { 
+    data : [1,2,3,4,5] 
+    };
+    자료.전부더하기();
+    */
+
+    /* 2번 정답 */
+    var 자료 = { 
+        data : [1,2,3,4,5] 
+    };    
+    자료.전부더하기 = function(){
+        var rs = 0;
+        this.data.forEach(function(a){
+            rs += a;
+        });
+        console.log(rs)
+    }
+    자료.전부더하기();
+
+    /* 3. setTimeout 이용해서 1초 후에 this.innerHTML 콘솔창 출력
+    document.getElementById('버튼').addEventListener('click', function(){
+        console.log(this.innerHTML)
+    });
+    */
+
+    /* 3번 정답 */
+    document.getElementById('버튼').addEventListener('click', function(){
+        setTimeout(()=>{console.log(this.innerHTML)}, 1000);
+    });
+</script>
