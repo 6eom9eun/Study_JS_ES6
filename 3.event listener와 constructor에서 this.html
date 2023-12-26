@@ -28,5 +28,27 @@
           console.log(this)
         });
       });
-    /*  */
+
+    /* 오브젝트 안에서 콜백함수 쓸 때 this */
+    var 오브젝트 = {
+        이름들 : ['김', '이', '박'],
+        함수 : function(){
+            오브젝트.이름들.forEach(function(){
+              console.log(this)
+            });
+        }
+      }
+      오브젝트.함수();
+
+    /* arrow func */
+    var 오브젝트 = {
+    이름들 : ['김', '이', '박'],
+    함수 : function(){
+        오브젝트.이름들.forEach(() => {
+            console.log(this)
+        });
+      }
+    }
+    오브젝트.함수();
+    /* arrow func 사용하면 내부 this값을 새로 바꿔주지 않아서 this 사용할 때 유용 */
 </script> 
