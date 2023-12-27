@@ -1,0 +1,41 @@
+<script>
+
+    var 이름 = 'Kim'; // 예젼에는 이것만 알면 됐음
+
+    /* 변수 키워드 : 선언, 할당, 범위 */
+
+    // var 재선언 O 재할당 O 범위 function
+    var 이름 = 'Kwak';
+    var 이름 = 'Park'; // 재선언 O
+    이름 = 'Won'; // 재할당 O
+
+    // let 재선언 X 재할당 O
+    let let이름 = 'Kim';
+    // let let이름 = 'Park'; 재선언시 에러
+    let이름 = 'Park'; // 재할당 O
+
+    // const 재선언 X 재할당 X
+    const 나이 = 20;
+    // const 나이 = 10; 재선언시 에러
+    // 나이 = 5; 재할당시 에러
+
+    const 사람 = { 이름 : 'Kim' }
+    사람.이름 = 'Park'; // const로 오브젝트 만들면 오브젝트 내부 값 변경해도 에러 XXX 재할당이 아니라 변경 !
+
+    // 변경불가능한 오브젝트
+    const 사람 = { 이름 : 'Kim' }
+    Object.freeze(사람); // 사람 오브젝트 수정불가능하게 freeze
+    사람.이름 = 'Park'; // 변경 XXX
+
+    
+    function 함수(){
+        var 이름 = 'Kim'; // var은 function안에서만 존재, 함수 밖에선 X
+        이름;
+    }
+
+    // let, const는 { } 중괄호에서만 존재 !!
+    if(true){
+        let 이름 = 'Kwak';
+        const 나이 = 20;
+    }
+</script>
