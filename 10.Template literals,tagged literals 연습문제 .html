@@ -1,0 +1,26 @@
+<script>
+    // 1번 단어 순서 바꾸기
+
+    var pants = 20;
+    var socks = 100;
+    `바지${pants} 양말${socks}`; // `바지20 양말100`
+    // `양말20 바지100` 만들기
+
+    function 해체(word, a, b){
+        console.log(word[1]+a+word[0]+b)
+    }
+    해체`바지${pants} 양말${socks}`;
+
+
+    // 2번 바지가 0개면 '바지다팔렸어요' 표시
+    var pants = 0;
+    var socks = 100;
+    `바지${pants} 양말${socks}`;
+
+    function 함수2(word, a, b){
+        if (a==0){
+            console(`바지다팔렸어요 양말` + b)
+        }
+    }
+    해체`바지${pants} 양말${socks}`;
+</script>
