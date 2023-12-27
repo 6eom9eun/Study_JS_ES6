@@ -1,0 +1,67 @@
+<script>
+    
+    // Spread Operator는 대괄호를 지워준다 !!!
+
+    var 어레이 = ['hello', 'world'];
+    console.log(어레이);
+    console.log(...어레이); // == 'hello', 'world'
+
+    // 문자에 붙이면 펼쳐준다.
+    var 문자 = 'hello';
+    console.log(문자);
+    console.log(...문자); // == 'h', 'e', 'l', 'l', 'o'
+
+    var a = [1, 2, 3];
+    var b = [4, 5];
+
+    var c = [...a]; // [1, 2, 3]
+    console.log(c)
+
+    // Array 합치기 / 복사
+    var c = [...a, ...b]; 
+    console.log(c) // [1, 2, 3, 4, 5]
+
+    
+
+    // Deep copy 할 때 유용함 => 독립적인 복사
+    var a = [1, 2, 3];
+    var b = a; // 등호로 복사하면 값을 공유함..
+
+    console.log(a); // [1, 2, 3]
+    console.log(b); // [1, 2, 3]
+
+    a[3] = 4; // 값을 공유해서 b에도 4가 있음
+    console.log(a); // [1, 2, 3, 4]
+    console.log(b); // [1, 2, 3, 4]
+////////////////////////////////////////////////
+    var a = [1, 2, 3];
+    var b = [...a]; // 등호로 복사하면 값을 공유함..
+
+    console.log(a); // [1, 2, 3]
+    console.log(b); // [1, 2, 3]
+
+    a[3] = 4; // 값을 공유해서 b에도 4가 있음
+    console.log(a); // [1, 2, 3, 4]
+    console.log(b); // [1, 2, 3]
+
+
+    // Deep copy 오브젝트 합치기
+    var o1 = { a : 1, b : 2};
+    var o2 = { ...o1, c : 3 }
+    console.log(o2) // {a: 1, b: 2, c: 3}
+    // 대괄호, 중괄호 모두 벗김
+
+
+    var o1 = { a : 1, b : 2};
+    var o2 = {...o1}; // 오브젝트 Deep copy
+
+    // 오브젝트에서 값 중복 일어나면??
+    var o1 = { a : 1, b : 2};
+    var o2 = { a : 2, ...o1};
+    console.log(o2) // {a: 1, b: 2} => 중복시 가장 뒤에 있는 걸 적용함
+
+    var o2 = { ...o1, a : 2}; 
+    console.log(o2) // {a: 2, b: 2}
+
+    // ... 은 항상 중괄호안, 대괄호안, 소괄호안에서만 사용
+</script>
