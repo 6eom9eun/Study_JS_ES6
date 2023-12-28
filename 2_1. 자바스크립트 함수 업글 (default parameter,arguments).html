@@ -1,0 +1,55 @@
+<script>
+
+    function 더하기(a, b){
+        console.log(a + b)
+    }
+    더하기(1, 2);
+    더하기(1);
+
+    // 함수 default 파라미터 !
+    function 더하기2(a, b = 10){
+        console.log(a + b)
+    }
+    더하기2(1);
+    더하기2();
+
+    function 더하기3(a, b = 2 * 5){
+        console.log(a + b)
+    }
+    더하기3(1);
+
+    function 더하기4(a, b = 2 * a){
+        console.log(a + b)
+    }
+    더하기4(1); // 3 출력
+
+    ////////
+    function 함수(){
+        return 10
+    }
+    function 더하기5(a, b = 함수()){
+        console.log(a + b)
+    }
+    더하기5(1); // 11 출력
+    더하기5(1, 2); // 3 출력
+
+
+    // 함수의 arguments : 모든 파라미터를 한꺼번에 다루고 싶을 때
+    function 함수2(a, b, c){
+        console.log(arguments);
+        //console.log(arguments[0]);
+        //console.log(arguments[1]);
+        //console.log(arguments[2]);
+    }
+    함수2(1, 2, 3); // [1, 2, 3] 출력
+
+
+    ////
+
+    function 함수3(a, b, c){
+        for (var i = 0; i < arguments.length; i++){
+            console.log(arguments[i]);
+        }
+    }
+    함수3(2, 3, 4);
+</script>
