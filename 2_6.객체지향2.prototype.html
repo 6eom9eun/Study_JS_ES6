@@ -1,0 +1,44 @@
+<script>
+
+    function Student(name){ 
+        this.name = name;
+        this.age = 26;
+        this.sayHi = function(){
+            console.log('안녕하세요 ' + this.name + '입니다.')
+        }
+    }
+
+    var 학생1 = new Student('Kwak'); 
+    var 학생2 = new Student('Park'); 
+    // 학생1, 학생2는 상속을 받은 거임, name, age, sayHi
+    // Student는 부모 학생1,2 는 자식
+
+    // 상속을 구현할 수 있는 또 하나의 문법 prototype -> 부모의 유전자
+    // constructor를 만들면 prototype이라는 공간이 자동으로 생김
+    console.log(Student.prototype)
+
+    // prototype에 값을 추가하면 모든 자식이 상속 가능
+    Student.prototype.gender = '남';
+    console.log(학생1.gender) // '남' 출력
+
+    // JS 에서는 학생1에 gender를 가지고 있는지 확인하고, 없다면 이후 부모에 gender찾고 있다면 갖고옴
+    // 이러한 동작원리 때문에 gender를 출력할 수 있는 것임.
+
+    console.log(학생1.toString()) // 내장함수는 어떻게 동작하는가
+    // 학생1이 toString()을 가지고 있는가?
+    // 그럼 부모에 있는가?
+    // 부모의 부모에 있는가?
+
+    var arr = [1, 2, 3];
+    var arr = new Array(1,2,3); // 실제 array가 만들어지는 방식, array를 만드는 constructor로 만들었음
+    // arr.sort();
+    // arr.map();
+    // arr.push();
+
+    // 모든 함수들은 arr의 부모중에 있으니까 사용 가능한 것임
+
+    var obj = { name : 'Kim' };
+    var obj = new Object(); // 모든 object 자료형은 Object 부모를 이용함
+
+
+</script>

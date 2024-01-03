@@ -1,0 +1,29 @@
+<script>
+    function Student(name){ 
+        this.name = name;
+        this.age = 26;
+        this.sayHi = function(){
+            console.log('안녕하세요 ' + this.name + '입니다.')
+        }
+    }
+
+    var 학생1 = new Student('Kwak'); 
+    var arr = [1,2,3];
+
+    // 1. prototype은 함수에만 몰래 생성됨
+    console.log(arr.prototype) // undefined 출력
+    console.log(Student.prototype) 
+
+    // 2. 내 부모 유전자 (부모의 prototype)를 검사 => __proto__
+    console.log(학생1.__proto__)
+
+    // 3. __proto__ 를 이용해 부모 강제 등록
+    var 부모 = { name : 'Kim' };
+    var 자식 = {};
+    자식.__proto__ = 부모;
+    console.log(자식.name) // 'Kim' 출력
+
+    // 4. 콘솔창에서 알려주는 prototype chain
+
+    console.log(Student.prototype)
+</script>
