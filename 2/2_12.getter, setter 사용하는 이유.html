@@ -1,0 +1,81 @@
+<script>
+    var 사람 = {
+        name : 'Park',
+        age : 30,
+        nextAge(){
+            return this.age + 1
+        }
+    }
+
+    // 사람.age; // age 자료 꺼내고 싶으면 이렇게 하지 않고 자료를 꺼내는 법을 만들어서 꺼냄
+    console.log(사람.nextAge())
+    console.log(사람.age + 1) // 이러면 되는 거 아니야??
+
+    // 함수를 만들어 object 데이터를 다루는 이유
+    // 사람.age[1].age2.age3 + 1 => 1. object 자료가 복잡할 때 이득
+    // 2. object 자료 수정시 편리 !! 데이터를 꺼내거나 / 수정하거나 그럴 대 실수 방지 & 관리, 데이터의 무결성
+    // 사람.age = '20'; 실수로 문자로 수정 => 오류
+
+    var 사람 = {
+        name : 'Park',
+        age : 30,
+        nextAge(){
+            return this.age + 1
+        },
+        setAge(age){
+            this.age = parseInt(age);
+        }
+    }
+
+    사람.setAge(20);
+    console.log(사람.age) // 20 출력
+
+    사람.setAge('25'); // 25 출력 : parseInt함수로 문자를 숫자로 바꿔줄 수 있음. 또는 if 문으로 데이터 거를 수 있음 안전장치 기능
+    console.log(사람.age)
+
+
+    // es5 부터 더 쉽게 바꿀 수 있음
+    var 사람 = {
+        name : 'Park',
+        age : 30,
+        get nextAge(){ // get 추가 => 데이터 꺼내쓰는 함수
+            return this.age + 1
+        },
+        set setAge(age){ // set 추가 => 데이터 변경하는 함수
+            this.age = parseInt(age);
+        }
+    }
+
+    사람.setAge = '10'; // 소괄호 필요 없음
+    console.log(사람.age)
+
+    console.log(사람.nextAge) // 사람.nextAge() 소괄호 있으면 에러, set도 동일
+
+    // get 함수들 (getter) : return이 있어야함, 파라미터 없어야함
+    // set 함수들 (setter) : 파라미터가 1개 있어야함
+
+
+
+    // 클래스에서도 가능
+
+    class People {
+        constructor(){
+            this.name = 'Park';
+            this.age = 20;
+        }
+        get nextAge(){ // class에서도 get/set 가능 !
+            return this.age + 1
+        }
+        set setAge(age){
+            this.age = age;
+        }
+    }
+
+    // 클래스에서도 get/set 사용하면 소괄호 X
+    var People1 = new People();
+    console.log(People1.nextAge) // 21 출력
+    People1.setAge = 100
+    console.log(People1.age) // 100 출력
+
+
+</script>
