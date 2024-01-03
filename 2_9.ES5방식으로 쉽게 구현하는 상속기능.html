@@ -1,0 +1,24 @@
+<script>
+    // ES5 상속기능 구현 : Object.create()
+
+    // Object.create(프로토타입object);
+    var 부모 = { name : 'Kim', age : 50 };
+    var 자식 = Object.create(부모); // prototype을 부모로 해주세요~
+    console.log(자식)
+    console.log(자식.name) // 'Kim' 출력
+
+    // 자식의 age를 바꾸고 싶으면?
+    자식.age = 20;
+    console.log(자식.age) // 20 출력
+
+    var 손자 = Object.create(자식);
+    console.log(손자.name) // 'Kim' 출력
+    console.log(손자.age) // 20 출력
+
+    console.log(부모)
+    console.log(자식)
+    console.log(손자)
+
+    // new Object(); 모든 Object 자료형은 이렇게 만들어 짐, 부모의 부모는 Object임
+
+</script> 

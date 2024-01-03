@@ -1,0 +1,29 @@
+<script>
+    
+    // constructor 신문법
+    class 부모 {
+        constructor(name){
+            this.name = name;
+            //this.sayHi = function(){ console.log('hello') } // 함수 추가하고 싶으면 1. constructor에 추가하던가 (자식이 직접 함수를 가짐)
+        }
+        sayHi(){ // 여기다 추가하던가 (부모.prototype에 추가됨)
+            console.log('hi')
+        }
+        sayHello(){
+            console.log('hello')
+        }
+    }
+
+    // 부모.prototype.sayHello = function(){ console.log('hello') } // sayHello() 부모 클래스에 추가하기
+
+    var 자식 = new 부모('Kim');
+    console.log(자식)
+
+    console.log(자식.__proto__) // 부모 prototype 출력
+    console.log(Object.getPrototypeOf(자식)); // 부모 prototype 출력
+
+
+    // 객체지향 문법을 왜 쓰는가?
+    // 1. object 여러개 만들어 쓰기 위해서
+
+</script>
