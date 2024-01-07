@@ -1,0 +1,42 @@
+<script>
+    var user = {
+        name : 'kim',
+        age : 20
+    };
+
+    console.log(user?.age) // user가 비었으면, age 안해줌
+
+    // optional chaining 연산자
+    // ?.왼쪽이 null, undefined면 점안찍어주고, undefined 남겨줌
+
+    // 중첩된 object자료에서 자료뽑을 때, reference에러 없이 안전하게 뽑을 수 있음.
+    
+    var user2 = {
+        name : 'kim',
+        age : {value : 20}
+    };
+    console.log(user2.age.value) // 20 출력
+
+    var user3 = {
+        name : 'kim',
+        // age : {value : 20}
+    };
+    // console.log(user3.age.value) // 에러, 코드 실행 중단
+    console.log(user3.age?.value) // undefined 남겨줌
+    console.log(user.age) // undefined 남겨줌
+
+    // undefined.value (에러)
+    // null.value (에러)
+
+    document.querySelector('#a')?.innerHTML // 이렇게 활용하면 좋다.
+
+    // 에러를 감추는 문법이다.
+
+
+    // ?? nullishh coalescing 연산자
+    console.log(undefined ?? '허걱') // ?? 왼쪽이 undefined, null이면 '허걱'출력
+
+    var user;
+    console.log(user ?? '로딩중') // 데이터 도착하기 전까지, '로딩중' 출력 (대신 보여줄 문자.)
+
+</script>

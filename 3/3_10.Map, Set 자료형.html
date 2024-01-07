@@ -1,0 +1,55 @@
+<script>
+    
+    var person = new Map(); // Map 자료형 만들기
+    person.set('name', 'Kim');
+    person.set('age', '20');
+    console.log(person) // 화살표가 있음 ?
+
+    // Map 자료형은 자료간의 연관성을 표현하기 위해 사용함
+    // Object 자료형은 자료 이름으로 글자만 가능
+    // Map 자료형은 다 가능
+    person.set(100, 'Kim');
+    person.set([1, 2, 3], 'Kim');
+
+
+    person.get('age') // Map에서 자료 꺼내는 법
+    person.delete('age') // 삭제하는 법
+    person.size // 자료 갯수 세는 법
+
+    // Map 자료형은 자료간의 연관성을 표현하기 위해 사용함 !!
+
+    // 반복문으로 Map에서 자료 꺼내는 방법
+    for (var key of person.keys()){
+        console.log(key)
+    }
+
+
+    var person2 = new Map([ // Map 자료형에 직접 자료 넣기
+    ['name', 'Kim'],
+    ['age', 20]
+    ]);
+
+    
+
+    var 출석 = ['Kim', 'Kwak', 'Hong', 'Kwak'] // 중복 자료 ??
+    console.log(출석)
+
+    // Set 자료형 : 중복 자료를 허용하지 않는 Array 비슷한 것
+    var 출석2 = new Set(['Kim', 'Kwak', 'Hong', 'Kwak']);
+    console.log(출석2)
+
+    출석2.add('Park'); // 중복값은 안들어가짐
+    출석2.delete('Park'); // 자료 제거
+    출석2.has('Park') // 자료 있는지 확인 true/false
+    출석2.size // 몇 개 들어있는지 확인
+
+    // Set <-> Array
+    // Array의 중복자료를 제거하고 싶으면?
+    var 출석3 = ['Kim', 'Kwak', 'Hong', 'Kwak'] 
+    var 출석4 = new Set(['Kim', 'Kwak', 'Hong', 'Kwak']);
+    출석3 = [...출석4];
+
+
+    // Set 자료형에 반복문 O
+
+</script>

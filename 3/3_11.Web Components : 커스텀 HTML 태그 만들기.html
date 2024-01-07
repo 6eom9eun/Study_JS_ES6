@@ -1,0 +1,36 @@
+<body>
+
+    <custom-input></custom-input>
+    <custom-input name="아이디"></custom-input>
+    <custom-input name="비번"></custom-input>
+
+<script>
+
+    class 클래스 extends HTMLElement{ // 클래스로 만들어야함.
+        connectedCallback(){
+            // document.createElement('label');
+            // this.appendChild(변수) // 이렇게 하면 빠름
+            let name = this.getAttribute('name'); // 파라미터 가능
+            this.innerHTML = `<label>안녕하세요 ${name} 인풋</label><input>`
+        }
+        static get observedAttributes(){ // 변경 감지
+            return ['name']
+        }
+        attributeChangedCallback(){ // 변경 출력
+            console.log(this.getAttribute('name')) 
+        }
+    }
+
+    customElements.define('custom-input', 클래스);
+
+    // <커스텀태그> 장점
+    // html 중복제거, 다른 페이지에서 재활용
+    // 파라미터 문법 구현 가능
+    // 긴 HTML도 함수처럼 재사용 가능 !
+    // Lit, Stencil 같은 거 사용하면 웹 컴포넌트 기능 쉽게 사용 가능
+
+    // 리액트나 뷰는 props(attribute) 변경되면 html 자동 재랜더링됨
+
+
+
+</script>

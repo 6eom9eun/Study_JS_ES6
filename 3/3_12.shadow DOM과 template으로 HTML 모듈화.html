@@ -1,0 +1,38 @@
+<>
+    <input type="range">
+    <!-- div 태그들로 만들어짐, 근데 숨겨져있음 shadow DOM -->
+    <div id="mordor"></div>
+
+    <label>안녕</label>
+    <custom-input></custom-input>
+
+    <template id="template1">
+        <!-- HTML 임시보관함 <template>  -->
+        <label>안녕하세요ㅋㅋ</label><input>
+        <style>label { color : red } </style>
+    </template>
+
+
+
+<script>
+    document.querySelector('#mordor').attachShadow({ mode : 'open' }) // shadow DOM 만드는 방법
+    document.querySelector('#mordor').shadowRoot.innerHTML = '<p>몰래 안녕하세요</p>'
+
+    // Web Components + shadow DOM = 완벽한 HTML 모듈
+
+    class 클래스 extends HTMLElement{
+        connectedCallback(){
+            this.attachShadow({ mode : 'open' });
+            this.shadowRoot.append(template1.content.cloneNode(true)); // Web Component에 스타일도 넣고 싶으면, Shadow DOM 사용하면 좋음, 바깥으로 영향 X
+
+            // shadow DOM에 이벤트리스너 부착 가능.
+            let el = this.shadowRoot.querySelector('label');
+            el.addEventListener('click', function(){
+                console.log('클릭했다')
+            })
+        }
+    }
+    customElements.define("custom-input", 클래스);
+
+
+</script>

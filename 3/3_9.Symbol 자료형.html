@@ -1,0 +1,49 @@
+<script>
+    // Symbol은 쓸 때 음슴.
+    var 심볼 = Symbol('설명');
+
+    // 심볼의 용도 : Object 자료형의 비밀스런 key값
+    var person = { name : 'Kwak' };
+
+    // 비밀스런 데이터를 저장하고 싶으면?
+    var weight = Symbol('내 비밀 몸무게')
+    person.weight = 300; // 이러면 다 보임
+    person[weight] = 100;
+    console.log(person[weight])
+
+    for (var key in person){ 
+        console.log(person[key]) // Symbol 출력 XXX, 반복문에서 출력 안됨(enumerable X)
+    }
+
+    // 오브젝트에 주석을 다는 느낌
+
+
+    var height = Symbol('내 비밀 키')
+    // person.height = 180;
+    var person2 = { name : 'Kwak', [height] : 180}; // 이렇게 넣을 수도 있음
+
+
+    // import 해온 파일 / 라이브러리 쓸 때
+    // 거기 있던 object에 자료를 추가하고 싶다면
+    // 심볼 사용하면 반복문에도 안뜨니까 기존 코드 해칠 염려 XXX
+
+    // Symbol 특징
+    // 1. 설명이 같다고 같은 Symbol이 아님, Symbol 만들 때 마다 유니크한 Symbol이 생김
+    var a = Symbol('설명1')
+    var b = Symbol('설명1')
+    console.log(a == b) // false
+
+    // 2. 전역 변수같은 전역 Symbol
+    var 전역심볼 = Symbol.for('설명1')
+    var 전역심볼2 = Symbol.for('설명1') // 이미 같은 설명 가지고 있는 심볼 위에 이미 있으면, 기존 심볼을 복붙해줌
+    // var 전역심볼2 = 전역심볼 // 이런 것임.
+    console.log(전역심볼 == 전역심볼2) // true
+
+    
+
+    var 어레이 = [2, 3, 4];
+    어레이[Symbol.iterator]; // 어레이에 집어넣는 기본 Symbol
+
+
+
+</script>
